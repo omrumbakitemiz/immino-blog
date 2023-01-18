@@ -4,15 +4,15 @@ import Header from '../components/header/header';
 export default component$(() => {
   return (
     <>
-      <main class='bg-gradient-to-r from-pink-400 to-purple-200'>
+      <main class="bg-gradient-to-r from-pink-400 to-purple-200">
         <Header />
-        <section>
+        <section class="min-h-[500px]">
           <Slot />
         </section>
       </main>
       <footer>
-        <a href='https://www.builder.io/' target='_blank'>
-          Made with ♡ by Builder.io
+        <a href="https://qwik.builder.io/" target="_blank">
+          Made with ♡ by Qwik
         </a>
       </footer>
     </>
