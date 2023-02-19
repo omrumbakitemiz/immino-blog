@@ -4,8 +4,8 @@ import type { DocumentHead } from '@builder.io/qwik-city';
 export default component$(() => {
   return (
     <div>
-      <h1>
-        Welcome to <i>immino-blog</i> 🍁🍁
+      <h1 class="font-bold text-center">
+        🍁🍁🍁 Welcome to <i>immino-blog</i> 🍁🍁🍁
       </h1>
     </div>
   );

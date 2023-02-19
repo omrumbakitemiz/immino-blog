@@ -8,7 +8,7 @@ export default component$(() => {
   return (
     <header>
       <div class="flex items-center">
-        <a href="/" target="_blank" title="qwik">
+        <a href="/" title="qwik">
           <QwikLogo />
         </a>
         <span class="font-semibold">imminolog</span>
