@@ -23,11 +23,11 @@ export default component$(() => {
   );
 });
 
-export const head: DocumentHead = ({ params, resolveValue }) => {
+export const head: DocumentHead = ({ resolveValue }) => {
   const postData = resolveValue(usePostLoader);
 
   return {
-    title: `Post "${params.postId}"`,
+    title: `Post "${postData.post.id}"`,
     meta: [
       {
         name: 'description',
@@ -35,7 +35,7 @@ export const head: DocumentHead = ({ params, resolveValue }) => {
       },
       {
         name: 'id',
-        content: params.productId,
+        content: postData.post.id,
       },
     ],
   };
