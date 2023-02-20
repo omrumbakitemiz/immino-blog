@@ -12,6 +12,7 @@ if (typeof window !== 'undefined') {
 }
 
 const nodeEnv = process.env;
+console.log('here nodeEnv:', nodeEnv);
 const viteEnv = import.meta.env;
 
 export const env = envScheme.parse({
