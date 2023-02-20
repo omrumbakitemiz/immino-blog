@@ -1,13 +1,13 @@
 import { Auth, type AuthConfig } from '@auth/core';
 import { AuthAction, Session } from '@auth/core/types';
 import type { RequestEvent } from '@builder.io/qwik-city';
-import crypto from 'crypto';
+// import crypto from 'crypto';
 import type { RequestEventLoader } from '~/server/types';
 
 // This solves issue with @auth/core I have.
 // [vite] Internal server error: crypto is not defined
 // don't know why it' happening
-global.crypto = crypto.webcrypto;
+// global.crypto = crypto.webcrypto;
 
 export interface QwikAuthConfig extends AuthConfig {
   /**
