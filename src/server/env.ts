@@ -8,11 +8,10 @@ const envScheme = z.object({
 if (typeof window !== 'undefined') {
   throw new Error('server env is on client!!');
 }
-
-const nodeEnv = process.env;
-const viteEnv = import.meta.env;
+console.log('process.env.NEXTAUTH_URL', process.env.NEXTAUTH_URL);
+console.log('process.env.NEXTAUTH_SECRET', process.env.NEXTAUTH_SECRET);
 
 export const env = envScheme.parse({
-  NEXTAUTH_URL: nodeEnv.NEXTAUTH_URL || viteEnv.VITE_NEXTAUTH_URL,
-  NEXTAUTH_SECRET: nodeEnv.NEXTAUTH_SECRET || viteEnv.VITE_NEXTAUTH_SECRET,
+  NEXTAUTH_URL: process.env.NEXTAUTH_URL,
+  NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
 });
