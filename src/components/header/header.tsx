@@ -20,6 +20,9 @@ export default component$(() => {
         <li>
           <a href="/about">About</a>
         </li>
+        <li>
+          <a href="/admin">Admin</a>
+        </li>
       </ul>
     </header>
   );
