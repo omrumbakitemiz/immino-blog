@@ -15,10 +15,10 @@ export default component$(() => {
       </div>
       <ul>
         <li>
-          <a href="/posts">Posts</a>
+          <a href="/posts/">Posts</a>
         </li>
         <li>
-          <a href="/about">About</a>
+          <a href="/about/">About</a>
         </li>
       </ul>
     </header>
