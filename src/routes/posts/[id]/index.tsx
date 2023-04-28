@@ -1,12 +1,20 @@
 import { component$ } from '@builder.io/qwik';
 import type { DocumentHead } from '@builder.io/qwik-city';
-import { loader$ } from '@builder.io/qwik-city';
+import { routeLoader$ } from '@builder.io/qwik-city';
+import { z } from 'zod';
 
-export const usePostLoader = loader$(async (ctx) => {
+const PostSchema = z.object({
+  id: z.number(),
+  userId: z.number(),
+  title: z.string(),
+  body: z.string(),
+});
+
+export const usePostLoader = routeLoader$(async (ctx) => {
   const postId = ctx.params.id;
   const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`);
   const post = await response.json();
-  return { post };
+  return PostSchema.parse(post);
 });
 
 export default component$(() => {
@@ -15,10 +23,10 @@ export default component$(() => {
   return (
     <>
       <h1 class="text-center">
-        Post ID is: <i>{post.value.post.id}</i>
+        Post ID is: <i>{post.value.id}</i>
       </h1>
 
-      <p>{post.value.post.body}</p>
+      <p>{post.value.body}</p>
     </>
   );
 });
@@ -27,15 +35,15 @@ export const head: DocumentHead = ({ resolveValue }) => {
   const postData = resolveValue(usePostLoader);
 
   return {
-    title: `Post "${postData.post.id}"`,
+    title: `Post "${postData.id}"`,
     meta: [
       {
         name: 'description',
-        content: postData.post.title.slice(0, 25),
+        content: postData.title.slice(0, 25),
       },
       {
         name: 'id',
-        content: postData.post.id,
+        content: postData.id.toString(),
       },
     ],
   };
