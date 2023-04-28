@@ -1,7 +1,6 @@
 import { component$ } from '@builder.io/qwik';
 import type { DocumentHead } from '@builder.io/qwik-city';
-import { routeLoader$ } from '@builder.io/qwik-city';
-import { z } from 'zod';
+import { routeLoader$, z } from '@builder.io/qwik-city';
 
 const PostSchema = z.object({
   id: z.number(),
